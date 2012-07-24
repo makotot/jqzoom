@@ -1,7 +1,7 @@
 ;(function($) {
 
-	$.fn.modal = function(options) {
-		var options = $.extend({}, $.fn.modal.defaults, options),
+	$.fn.zoom = function(options) {
+		var options = $.extend({}, $.fn.zoom.defaults, options),
 			method = {},
 			originImg = {};
 
@@ -180,7 +180,7 @@
 		});
 	};
 
-	$.fn.modal.defaults = {
+	$.fn.zoom.defaults = {
 
 	};
 
