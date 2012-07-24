@@ -1,7 +1,7 @@
 ;(function($) {
 
 	$.fn.zoom = function(options) {
-		var options = $.extend({}, $.fn.zoom.defaults, options),
+		var option = $.extend({}, $.fn.zoom.defaults, options),
 			method = {},
 			originImg = {};
 
@@ -80,7 +80,7 @@
 					top: originPos.top,
 					left: originPos.left,
 					zIndex: 1000,
-					opacity: .1,
+					opacity: 0.1,
 					padding: '5px',
 					backgroundColor: '#FFFFFF'
 				});
@@ -89,7 +89,7 @@
 					width: originW + 'px',
 					height: originH + 'px',
 					zIndex: 1001,
-					opacity: .1
+					opacity: 0.1
 				});
 				method.animateZoom($wrapper, $largeImg, largeSize);
 			},
@@ -111,7 +111,7 @@
 					width: docW,
 					height: docH,
 					backgroundColor: '#000000',
-					opacity: .5,
+					opacity: 0.5,
 					zIndex: 998
 				});
 
