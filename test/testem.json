@@ -1,0 +1,5 @@
+{
+	"framework": "mocha",
+	"src_files": ["my-tests.js"],
+	"test_page": "tests.html"
+}
