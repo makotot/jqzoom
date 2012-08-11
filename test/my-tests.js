@@ -12,7 +12,6 @@ describe('jqzoom', function() {
 	});
 	describe('$(div.elem).zoom()', function() {
 		it('should be a elem', function() {
-			var $elem = $('<div class="jsiTest"></div>');
 			$elem.zoom().should.equal($elem);
 		});
 	});
