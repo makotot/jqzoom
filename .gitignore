@@ -1,2 +1,5 @@
 _site/*
 server/*
+_includes/*
+_theme_packages/*
+
