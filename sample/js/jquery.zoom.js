@@ -9,17 +9,15 @@
 			init: function(target) {
 				var $target = $(target),
 					largeImg = $target.attr('href'),
-					$originImg = $target.find('img'),
-					originW = $originImg.width(),
-					originH = $originImg.height();
+					$originImg = $target.find('img');
 
-				originImg.width = originW; 
-				originImg.height = originH;
+				originImg.width = $originImg.width(); 
+				originImg.height = $originImg.height();
 				originImg.element = $originImg;
 				
 				$target.on('click', function(e) {
 					e.preventDefault();
-					method.createLargeElem(largeImg, $originImg, originW, originH);
+					method.createLargeElem(largeImg, $originImg);
 					method.createOverlay();
 				});
 			},
@@ -62,36 +60,44 @@
 					'height': elemOH
 				};
 			},
-			createLargeElem: function(img, $originImg, originW, originH) {
+			createLargeElem: function(img, $originImg) {
 				var $largeImg = $('<img src="' + img + '" class="jscLargeImg" />'),
 					$wrapper = $('<div class="jscModalWrapper"></div>'),
 					originPos = method.checkOriginPos($originImg),
+					img = new Image(),
 					largeSize;
 
 				method.hideOrigin($originImg);
 				$('body').append($wrapper);
 				$wrapper.append($largeImg);
-				largeSize = method.checkLargeSize($largeImg);
+				$largeImg.hide();
+				img.src = $largeImg.attr('src');
+				// if img.complete is false, it returns this width and height 0.
+				img.onload = function() {
+					largeSize = method.checkLargeSize($largeImg);
 				
-				$wrapper.css({
-					width: originW + 'px',
-					height: originH + 'px',
-					position: 'absolute',
-					top: originPos.top,
-					left: originPos.left,
-					zIndex: 1000,
-					opacity: 0.1,
-					padding: '5px',
-					backgroundColor: '#FFFFFF'
-				});
-
-				$largeImg.css({
-					width: originW + 'px',
-					height: originH + 'px',
-					zIndex: 1001,
-					opacity: 0.1
-				});
-				method.animateZoom($wrapper, $largeImg, largeSize);
+					$wrapper.css({
+						width: originImg.width + 'px',
+						height: originImg.height + 'px',
+						position: 'absolute',
+						top: originPos.top,
+						left: originPos.left,
+						zIndex: 1000,
+						opacity: 0.1,
+						padding: '5px',
+						backgroundColor: '#FFFFFF'
+					});
+	
+					$largeImg.css({
+						width: originImg.width + 'px',
+						height: originImg.height + 'px',
+						zIndex: 1001,
+						opacity: 0.1
+					});
+					$largeImg.show();
+					method.animateZoom($wrapper, $largeImg, largeSize);
+					console.log(img.complete)
+				};
 			},
 			createModalWrapper: function($largeImg) {
 				var $wrapper = $('<div class="jscModalWrapper"></div>');
