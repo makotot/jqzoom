@@ -96,7 +96,6 @@
 					});
 					$largeImg.show();
 					method.animateZoom($wrapper, $largeImg, largeSize);
-					console.log(img.complete)
 				};
 			},
 			createModalWrapper: function($largeImg) {
