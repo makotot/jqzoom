@@ -6,14 +6,14 @@
 			originImg = {};
 
 		method = {
-			init: function(target) {
+			init: function(target, idx) {
 				var $target = $(target),
 					largeImg = $target.attr('href'),
 					$originImg = $target.find('img');
 
-				originImg.width = $originImg.width(); 
-				originImg.height = $originImg.height();
-				originImg.element = $originImg;
+//				originImg.width = $originImg.width(); 
+//				originImg.height = $originImg.height();
+//				originImg.element = $originImg;
 				
 				$target.on('click', function(e) {
 					e.preventDefault();
@@ -40,7 +40,7 @@
 				return {
 					'width': $largeImg.width(),
 					'height': $largeImg.height(),
-					'outerWidth': $largeImg.outerHeight(),
+					'outerWidth': $largeImg.outerWidth(),
 					'outerHeight': $largeImg.outerHeight()
 				};
 			},
@@ -66,6 +66,10 @@
 					originPos = method.checkOriginPos($originImg),
 					img = new Image(),
 					largeSize;
+
+				originImg.width = $originImg.width();
+				originImg.height = $originImg.height();
+				originImg.element = $originImg;
 
 				method.hideOrigin($originImg);
 				$('body').append($wrapper);
@@ -126,7 +130,10 @@
 				});
 			},
 			hideOrigin: function($origin) {
-				$origin.hide();
+				$origin.css('visibility', 'hidden');
+			},
+			showOrigin: function($originImg) {
+				$originImg.css('visibility', 'visible');
 			},
 			animateZoom: function($wrapper, $largeImg, largeSize) {
 				var pos = method.placeCenter($largeImg, largeSize);
@@ -174,19 +181,16 @@
 				}, function() {
 					$(this).remove();
 				});
-			},
-			showOrigin: function($originImg) {
-				$originImg.show();
 			}
 		};
 
-		return this.each(function() {
-			method.init(this);
+		return this.each(function(idx) {
+			method.init(this, idx);
 		});
 	};
 
 	$.fn.zoom.defaults = {
-
+		caption: null
 	};
 
 })(jQuery);
