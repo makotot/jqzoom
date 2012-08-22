@@ -126,7 +126,10 @@
 				});
 			},
 			hideOrigin: function($origin) {
-				$origin.hide();
+				$origin.css('visibility', 'hidden');
+			},
+			showOrigin: function($originImg) {
+				$originImg.css('visibility', 'visible');
 			},
 			animateZoom: function($wrapper, $largeImg, largeSize) {
 				var pos = method.placeCenter($largeImg, largeSize);
@@ -174,9 +177,6 @@
 				}, function() {
 					$(this).remove();
 				});
-			},
-			showOrigin: function($originImg) {
-				$originImg.show();
 			}
 		};
 
