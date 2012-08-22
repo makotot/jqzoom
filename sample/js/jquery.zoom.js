@@ -40,7 +40,7 @@
 				return {
 					'width': $largeImg.width(),
 					'height': $largeImg.height(),
-					'outerWidth': $largeImg.outerHeight(),
+					'outerWidth': $largeImg.outerWidth(),
 					'outerHeight': $largeImg.outerHeight()
 				};
 			},
