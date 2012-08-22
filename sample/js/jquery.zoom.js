@@ -6,14 +6,14 @@
 			originImg = {};
 
 		method = {
-			init: function(target) {
+			init: function(target, idx) {
 				var $target = $(target),
 					largeImg = $target.attr('href'),
 					$originImg = $target.find('img');
 
-				originImg.width = $originImg.width(); 
-				originImg.height = $originImg.height();
-				originImg.element = $originImg;
+//				originImg.width = $originImg.width(); 
+//				originImg.height = $originImg.height();
+//				originImg.element = $originImg;
 				
 				$target.on('click', function(e) {
 					e.preventDefault();
@@ -66,6 +66,10 @@
 					originPos = method.checkOriginPos($originImg),
 					img = new Image(),
 					largeSize;
+
+				originImg.width = $originImg.width();
+				originImg.height = $originImg.height();
+				originImg.element = $originImg;
 
 				method.hideOrigin($originImg);
 				$('body').append($wrapper);
@@ -180,8 +184,8 @@
 			}
 		};
 
-		return this.each(function() {
-			method.init(this);
+		return this.each(function(idx) {
+			method.init(this, idx);
 		});
 	};
 
