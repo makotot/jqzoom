@@ -6,14 +6,10 @@
 			originImg = {};
 
 		method = {
-			init: function(target, idx) {
+			init: function(target) {
 				var $target = $(target),
 					largeImg = $target.attr('href'),
 					$originImg = $target.find('img');
-
-//				originImg.width = $originImg.width(); 
-//				originImg.height = $originImg.height();
-//				originImg.element = $originImg;
 				
 				$target.on('click', function(e) {
 					e.preventDefault();
@@ -64,7 +60,7 @@
 				var $largeImg = $('<img src="' + img + '" class="jscLargeImg" />'),
 					$wrapper = $('<div class="jscModalWrapper"></div>'),
 					originPos = method.checkOriginPos($originImg),
-					img = new Image(),
+					imgObj = new Image(),
 					largeSize;
 
 				originImg.width = $originImg.width();
@@ -75,9 +71,9 @@
 				$('body').append($wrapper);
 				$wrapper.append($largeImg);
 				$largeImg.hide();
-				img.src = $largeImg.attr('src');
+				imgObj.src = $largeImg.attr('src');
 				// if img.complete is false, it returns this width and height 0.
-				img.onload = function() {
+				imgObj.onload = function() {
 					largeSize = method.checkLargeSize($largeImg);
 				
 					$wrapper.css({
@@ -184,8 +180,8 @@
 			}
 		};
 
-		return this.each(function(idx) {
-			method.init(this, idx);
+		return this.each(function() {
+			method.init(this);
 		});
 	};
 
