@@ -72,8 +72,25 @@
 				$wrapper.append($largeImg);
 				$largeImg.hide();
 				imgObj.src = $largeImg.attr('src');
+
+				// image onload event does not work well in IE.
+				if (!jQuery.support.noCloneEvent) {
+					function loadImg() {
+						if (!imgObj.complete) {
+							setTimeout(loadImg, 100);
+						} else {
+							showLargeElem();
+						}
+					};
+
+					loadImg();
+				} else {
+					imgObj.onload = showLargeElem;
+				}
 				// if img.complete is false, it returns this width and height 0.
-				imgObj.onload = function() {
+
+				function showLargeElem() {
+
 					largeSize = method.checkLargeSize($largeImg);
 				
 					$wrapper.css({

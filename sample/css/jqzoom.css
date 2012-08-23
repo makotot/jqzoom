@@ -2,6 +2,10 @@ body	{
 	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
 }
 
+img	{
+	border: 0;
+}
+
 .jscLargeImg	{
 	width: auto;
 	height: auto;
