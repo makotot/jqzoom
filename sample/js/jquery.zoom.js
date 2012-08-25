@@ -63,6 +63,13 @@
 					imgObj = new Image(),
 					largeSize;
 
+				function loadImg() {
+					if (!imgObj.complete) {
+						setTimeout(loadImg, 100);
+					} else {
+						showLargeElem();
+					}
+				};
 				originImg.width = $originImg.width();
 				originImg.height = $originImg.height();
 				originImg.element = $originImg;
@@ -75,14 +82,6 @@
 
 				// image onload event does not work well in IE.
 				if (!jQuery.support.noCloneEvent) {
-					function loadImg() {
-						if (!imgObj.complete) {
-							setTimeout(loadImg, 100);
-						} else {
-							showLargeElem();
-						}
-					};
-
 					loadImg();
 				} else {
 					imgObj.onload = showLargeElem;
