@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="stylesheets/styles.css">
     <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+	<link rel="stylesheet" href="stylesheets/jqzoom.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
@@ -28,37 +29,35 @@
         </ul>
       </header>
       <section>
-        <h2>Demo</h2>
+        <h3>Demo</h3>
 
-		<h2>Usage</h2>
+		<div>
+			<a href="img/pig.jpg" class="jscZoom"><img src="img/pig_s.jpg" title="http://www.sxc.hu/photo/560043" /></a>
+		</div>
 
-<pre><code>$('.example').zoom();
+		<h3>Usage</h3>
+
+<pre><code>$('.jscZoom').zoom();
 </code></pre>
 
-<p>if you're using the github for mac, simply sync your repository and you'll see the new branch.</p>
+		<h3>require</h3>
+		<p>jQuery 1.7+</p>
+	</section>
 
-<h3>designer templates</h3>
 
-<p>we've crafted some handsome templates for you to use. go ahead and continue to layouts to browse through them. you can easily go back to edit your page before publishing. after publishing your page, you can revisit the page generator and switch to another theme. your page content will be preserved if it remained markdown format.</p>
-
-<h3>rather drive stick?</h3>
-
-<p>if you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. in addition to supporting regular html content, github pages support jekyll, a simple, blog aware static site generator written by our own tom preston-werner. jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. it also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>authors and contributors</h3>
-
-<p>you can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a github username to generate a link to their profile. the resulting <code>&lt;a&gt;</code> element will link to the contributor's github profile. for example: in 2007, chris wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), pj hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and tom preston-werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded github.</p>
-
-<h3>support or contact</h3>
-
-<p>having trouble with pages? check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-      <footer>
+	<footer>
         <p>this project is maintained by <a href="https://github.com/makotot">makotot</a></p>
         <p><small>hosted on github pages &mdash; theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.js"></script>
     <script src="javascripts/scale.fix.js"></script>
+	<script src="javascripts/jquery.zoom.js"></script>
     
+<script type="text/javascript">
+	$(function() {
+		$('.jscZoom').zoom();
+	});
+</script>
   </body>
 </html>
