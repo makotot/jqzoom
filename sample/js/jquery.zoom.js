@@ -1,5 +1,14 @@
 ;(function($) {
 
+	/*
+	 * jQuery.zoom.js
+	 * 
+	 * jquery.zoom.js is a jQuery plugin for scaling a image.
+	 *
+	 * @author makotot
+	 * 
+	 */
+
 	$.fn.zoom = function(options) {
 		var option = $.extend({}, $.fn.zoom.defaults, options),
 			method = {},
@@ -202,7 +211,6 @@
 	};
 
 	$.fn.zoom.defaults = {
-		caption: null
 	};
 
 })(jQuery);
