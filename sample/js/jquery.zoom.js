@@ -25,6 +25,13 @@
 					method.createLargeElem(largeImg, $originImg);
 					method.createOverlay();
 				});
+
+				if (option.magnifier) {
+					console.log(this)
+				}
+			},
+			setZoomEvent: function() {
+
 			},
 			checkOriginPos: function($origin) {
 				var $win = $(window),
@@ -211,6 +218,7 @@
 	};
 
 	$.fn.zoom.defaults = {
+		magnifier: false
 	};
 
 })(jQuery);
